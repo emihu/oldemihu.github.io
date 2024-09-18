@@ -12,3 +12,8 @@ https://github.com/varadbhogayata/varadbhogayata.github.io
 
 ![screenshot](assets/img/readme-screenshot2.png)
 ![screenshot](assets/img/readme-screenshot3.png)
+
+## Activity 3
+
+![screenshot](assets/img/readme-screenshot4.png)
+![screenshot](assets/img/readme-screenshot5.png)
