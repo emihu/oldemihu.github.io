@@ -388,50 +388,16 @@ utilizing cloud software such as Azure, Kubernetes, Kafka, Docker, Grafana, and 
             <span>May 2022 - Aug 2022 | Toronto, Canada</span>
           </div>
         </div>
+    </section>
 
     <!-- Fourth Section: Projects -->
     <section id="projects" class="section scrollspy">
       <h3 class="page-title white-text teal">Projects</h3>
+
       <div class="container">
         <div class="row">
-
-          <div class="col s12 m6 l4">
-            <div class="card medium">
-              <div class="card-image waves-effect waves-block waves-light">
-                <img alt="educational game" src="/assets/img/RisingWaters1.png" style="height: 100%; width: 100%" class="activator" />
-              </div>
-              <div class="card-content">
-                <span class="card-title activator teal-text hoverline">Rising Waters<i
-                    class="mdi-navigation-more-vert right"></i></span>
-                <p>
-                  An educational game 
-                </p>
-              </div>
-              <div class="card-reveal">
-                <!-- TODO: change this -- only close button -->
-                <!-- <span class="card-title brown-text">Accomplishments<i class="mdi-navigation-close right"></i></span> -->
-                <span class="card-title grey-text"><small>Accomplishments</small><i
-                    class="mdi-navigation-close right"></i></span>
-                <ul>
-                  <li><b>Tools:</b> Java</li>
-                  <li>Three game levels</li>
-                  <li>High score</li>
-                </ul>
-                <div class="card-action">
-                  <a aria-label="Visit " href="https://github.com/emihu/rising-waters" target="_blank" data-position="top"
-                    data-tooltip="View Online"
-                    class="btn-floating btn-large waves-effect waves-light blue-grey tooltipped"><i
-                      class="fa fa-external-link"></i></a>
-                  <a aria-label="Visit the GitHub repo for  project" href="https://github.com/emihu/rising-waters"
-                    target="_blank" data-position="top" data-tooltip="View Source"
-                    class="btn-floating btn-large waves-effect waves-light blue-grey tooltipped"><i
-                      class="fa fa-github"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col s12 m6 l4">
+          <h4>Recent Projects</h4>
+          <div class="col s12 m6 l4" date="20230101" style="display: hide">
             <div class="card medium">
               <div class="card-image waves-effect waves-block waves-light">
                 <img alt="quiz app" src="/assets/img/project-quizup-logo-1.png" style="height: 100%; width: 100%" class="activator" />
@@ -467,8 +433,70 @@ utilizing cloud software such as Azure, Kubernetes, Kafka, Docker, Grafana, and 
               </div>
             </div>
           </div>
-
-          <!-- ************* -->
+          <div class="col s12 m6 l4" date="20240101" style="display: hide">
+            <div class="card medium" >
+              <div class="card-image waves-effect waves-block waves-light">
+                <img alt="educational game" src="/assets/img/RisingWaters1.png" style="height: 100%; width: 100%" class="activator" />
+              </div>
+              <div class="card-content">
+                <span class="card-title activator teal-text hoverline">Rising Waters<i
+                    class="mdi-navigation-more-vert right"></i></span>
+                <p>
+                  An educational game 
+                </p>
+              </div>
+              <div class="card-reveal">
+                <span class="card-title grey-text"><small>Accomplishments</small><i
+                    class="mdi-navigation-close right"></i></span>
+                <ul>
+                  <li><b>Tools:</b> Java</li>
+                  <li>Three game levels</li>
+                  <li>High score</li>
+                </ul>
+                <div class="card-action">
+                  <a aria-label="Visit " href="https://github.com/emihu/rising-waters" target="_blank" data-position="top"
+                    data-tooltip="View Online"
+                    class="btn-floating btn-large waves-effect waves-light blue-grey tooltipped"><i
+                      class="fa fa-external-link"></i></a>
+                  <a aria-label="Visit the GitHub repo for  project" href="https://github.com/emihu/rising-waters"
+                    target="_blank" data-position="top" data-tooltip="View Source"
+                    class="btn-floating btn-large waves-effect waves-light blue-grey tooltipped"><i
+                      class="fa fa-github"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button id="load-more"> Load More </button>
+        
+          <script>
+            const buttonElement = document.getElementById("load-more");
+            var clicked = false;
+            const allProjects = document.getElementsByClassName("col s12 m6 l4");
+            console.log(allProjects);
+            console.log(allProjects[0].getAttribute("date"));
+            
+            buttonElement.addEventListener("click", function() {
+              const sortedArray = [].slice.call(allProjects).sort(function(a, b) {
+                  const dateA = a.getAttribute("date");
+                  const dateB = b.getAttribute("date");
+                  if (dateA < dateB)
+                      return 1;
+                  if (dateA > dateB)
+                      return -1;
+                  return 0;
+              })
+              console.log(sortedArray)
+              if (clicked == false) {
+                clicked = true;
+                sortedArray.forEach(project => project.hide.display = "block");
+              }
+              else {
+                clicked = false;
+                sortedArray.forEach(project => project.hide.display = "hide");
+                sortedArray[0].hide.display = "block";
+              }
+            }) 
+          </script>
         </div>
       </div>
     </section>
